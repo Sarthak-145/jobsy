@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
   res.send('Server running');
+  console.log('secret in server.js: ', process.env.JWT_SECRET);
 });
 
 const start = async () => {
