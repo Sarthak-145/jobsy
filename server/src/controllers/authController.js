@@ -72,3 +72,17 @@ export const login = async (req, res) => {
     res.status(500).json({ message: 'Internal server error!' });
   }
 };
+
+export const me = async (req, res) => {
+  //from middleware
+  const userId = req.user.userId;
+
+  const user = await User.findById(userId).select('name, role');
+  if (!user) {
+    return res.status(404).json({ message: 'User is not found' });
+  }
+
+  res
+    .status(200)
+    .json({ user: { id: user._id, name: user.name, role: user.role } });
+};
