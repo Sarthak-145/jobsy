@@ -5,6 +5,7 @@ import PrivateLayout from '../Layouts/PrivateLayout';
 import Register from '../Pages/Register';
 import Landing from '../Pages/Landing';
 import Home from '../Pages/Home';
+import Login from '../Pages/Login';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/home" element={<Home />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
             </Route>
 
             <Route element={<PrivateLayout />}></Route>

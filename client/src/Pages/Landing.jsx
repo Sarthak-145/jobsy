@@ -14,7 +14,10 @@ const Landing = () => {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <h1 className="text-xl font-bold text-zinc-900">Jobsy</h1>
 
-          <button className="text-sm font-medium text-blue-600 hover:underline cursor-pointer">
+          <button
+            className="text-sm font-medium text-blue-600 hover:underline cursor-pointer"
+            onClick={() => navigate('/login')}
+          >
             Login
           </button>
         </div>
@@ -34,13 +37,15 @@ const Landing = () => {
             <div className="mt-6 flex gap-3">
               <button
                 className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold
-                           text-white hover:bg-blue-700 transition"
+                           text-white hover:bg-blue-700 transition cursor-pointer"
+                onClick={() => navigate('/register')}
               >
                 Get started
               </button>
               <button
                 className="rounded-lg border border-zinc-300 px-6 py-3 text-sm
-                           text-zinc-700 hover:bg-zinc-50 transition"
+                           text-zinc-700 hover:bg-zinc-50 transition cursor-pointer"
+                onClick={() => navigate('/home')}
               >
                 Browse jobs
               </button>
