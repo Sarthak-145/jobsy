@@ -25,7 +25,7 @@ const Login = () => {
       await login({ email, password });
       navigate('/home');
     } catch (err) {
-      setError(err.msg || 'Login failed');
+      setError(err.response.data.message || 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -79,6 +79,7 @@ const Login = () => {
               type="submit"
               className="w-full rounded-lg bg-blue-600 py-2.5 text-sm font-semibold
                          text-white hover:bg-blue-700 transition cursor-pointer"
+              disabled={loading}
             >
               Sign in
             </button>

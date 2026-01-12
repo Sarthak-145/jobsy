@@ -2,14 +2,18 @@ import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 
 const Home = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <div className="min-h-screen bg-zinc-100">
       <header className="border-b border-zinc-200 bg-white">
         <div className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
           <h1 className="text-xl font-bold text-zinc-900">Jobsy</h1>
           {user && (
-            <button className="text-sm font-medium text-blue-600 hover:underline">
+            <button
+              className="text-sm font-medium text-blue-600 hover:underline cursor-pointer"
+              onClick={logout}
+            >
               Logout
             </button>
           )}
