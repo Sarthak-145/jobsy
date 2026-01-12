@@ -50,7 +50,7 @@ export const login = async (req, res) => {
         .json({ message: "This email isn't registered yet :/" });
     }
     //compare pass
-    const isMatch = bcrypt.compare(password, user.passwordHash);
+    const isMatch = await bcrypt.compare(password, user.passwordHash);
     if (!isMatch) {
       return res.status(400).json({ message: 'Wrong password :(' });
     }
