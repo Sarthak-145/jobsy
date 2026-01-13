@@ -3,7 +3,7 @@ import { Job } from '../db/models/Job.js';
 export const getJobs = async (req, res) => {
   try {
     const result = await Job.find();
-    res.status(200).json(result);
+    res.status(200).json({ success: true, conut: result.length, jobs: result });
   } catch (err) {
     res.status(500).json({ message: 'Error getting jobs' });
   }
