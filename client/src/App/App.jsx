@@ -6,6 +6,7 @@ import Register from '../Pages/Register';
 import Landing from '../Pages/Landing';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
+import CreateJob from '../Pages/CreateJob';
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
               <Route path="/login" element={<Login />} />
             </Route>
 
-            <Route element={<PrivateLayout />}></Route>
+            <Route element={<PrivateLayout />}>
+              <Route path="/job/new" element={<CreateJob />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </AuthProvider>
