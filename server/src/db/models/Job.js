@@ -18,16 +18,14 @@ const jobSchema = new mongoose.Schema(
       required: true,
     },
 
-    requirements: {
-      type: [String],
-      default: [],
+    salary: {
+      type: Number,
+      required: true,
     },
 
     minExp: Number,
-    salaryMin: Number,
-    salaryMax: Number,
-
     location: String,
+    company: String,
 
     jobType: {
       type: String,
