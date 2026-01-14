@@ -7,3 +7,7 @@ export const getJobs = () => {
 export const createJob = (data) => {
   return API.post('/jobs', data);
 };
+
+export const getJobById = (id) => {
+  return API.get(`/jobs/${id}`);
+};
