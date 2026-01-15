@@ -25,6 +25,10 @@ const applicationSchema = new mongoose.Schema(
       required: true,
     },
 
+    personalSection: {
+      type: String,
+    },
+
     status: {
       type: String,
       enum: ['applied', 'reviewed', 'rejected'],
