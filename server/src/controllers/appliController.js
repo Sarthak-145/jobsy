@@ -42,3 +42,19 @@ export const applyJob = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+export const getMyApplications = async (req, res) => {
+  //from middleware
+  const candidateId = req.user.userId;
+
+  try {
+    const result = await Application.find({ candidateId });
+    if (result.length === 0) {
+      return res.status(200).json({ sucess: true, applications: [] });
+    }
+    res.status(200).json({ success: true, applications: result });
+  } catch (err) {
+    console.log('Error while fetching applications: ', err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
