@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getJobById } from '../services/jobs.services';
 
 const Job = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -85,6 +86,7 @@ const Job = () => {
               className="rounded-lg bg-blue-600 px-6 py-2.5
                          text-sm font-semibold text-white
                          hover:bg-blue-700 transition cursor-pointer"
+              onClick={() => navigate('apply')}
             >
               Apply for this job
             </button>
