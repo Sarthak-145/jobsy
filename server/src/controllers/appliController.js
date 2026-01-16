@@ -48,7 +48,7 @@ export const getMyApplications = async (req, res) => {
   const candidateId = req.user.userId;
 
   try {
-    const result = await Application.find({ candidateId });
+    const result = await Application.find({ candidateId }).populate('jobId');
     if (result.length === 0) {
       return res.status(200).json({ sucess: true, applications: [] });
     }
