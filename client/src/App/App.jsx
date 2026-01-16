@@ -9,6 +9,7 @@ import Login from '../Pages/Login';
 import CreateJob from '../Pages/CreateJob';
 import Job from '../Pages/Job';
 import JobApply from '../Pages/JobApply';
+import CandidateDashboard from '../Pages/CandidateDashboard';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route element={<PrivateLayout />}>
               <Route path="/job/new" element={<CreateJob />} />
               <Route path="/job/:id/apply" element={<JobApply />} />
+              <Route path="/dashboard" element={<CandidateDashboard />} />
             </Route>
           </Routes>
         </BrowserRouter>
