@@ -43,6 +43,7 @@ export const applyJob = async (req, res) => {
   }
 };
 
+// for candidates
 export const getMyApplications = async (req, res) => {
   //from middleware
   const candidateId = req.user.userId;
@@ -56,5 +57,40 @@ export const getMyApplications = async (req, res) => {
   } catch (err) {
     console.log('Error while fetching applications: ', err);
     res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+//for employers
+export const getJobsMe = async (req, res) => {
+  // from middleware (id of employer)
+  const employerId = req.user.userId;
+
+  try {
+    const jobs = await Job.find({ employerId });
+    const applications = await Application.find({ employerId })
+      .populate('jobId')
+      .populate('candidateId');
+    if (jobs.length === 0) {
+      return res.status(200).json({ sucess: true, applications: [] });
+    }
+    const jobMap = {};
+
+    jobs.forEach((job) => {
+      jobMap[job._id] = { ...job.toObject(), applications: [] };
+    });
+
+    applications.forEach((app) => {
+      jobMap[app.jobId._id]?.applications.push(app);
+    });
+
+    res.status(200).json({
+      success: true,
+      jobs: Object.values(jobMap),
+    });
+  } catch (err) {
+    console.log('Error while getting posted jobs', err);
+    res.status(500).json({
+      message: "can't get you jobs, internal server error",
+    });
   }
 };

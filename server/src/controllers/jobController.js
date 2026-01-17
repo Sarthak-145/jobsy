@@ -23,13 +23,14 @@ export const getJobWithId = async (req, res) => {
   }
 };
 
+//for employers
 export const getJobsMe = async (req, res) => {
-  // from middleware
+  // from middleware (id of employer)
   const userId = req.user.userId;
 
   try {
-    const result = await Job.findOne({ userId: emplyerId });
-    res.status(200).json({ result });
+    const result = await Job.find({ userId: emplyerId });
+    res.status(200).json({ success: true, jobs: result });
   } catch (err) {
     res.status(500).json({
       message: "can't get you jobs, internal server error",

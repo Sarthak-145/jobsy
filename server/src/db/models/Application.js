@@ -14,6 +14,8 @@ const applicationSchema = new mongoose.Schema(
       required: true,
     },
 
+    // this should always equal Job.emplyerId
+    // bit more data but still faster and less complex apis
     employerId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
