@@ -3,11 +3,16 @@ import { AuthContext } from '../Contexts/AuthContext';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { getJobs } from '../services/jobs.services';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const Home = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  if (user.role === 'employer') {
+    navigate('/dashboard/employer');
+  }
 
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
