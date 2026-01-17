@@ -119,6 +119,7 @@ const Register = () => {
             type="submit"
             className="w-full mt-2 rounded-lg bg-blue-600 py-2.5 text-sm font-semibold
                        text-white hover:bg-blue-700 transition cursor-pointer"
+            disabled={loading}
           >
             Create account
           </button>
@@ -126,9 +127,12 @@ const Register = () => {
 
         <p className="mt-6 text-center text-sm text-zinc-600">
           Already have an account?
-          <span className="ml-1 text-blue-600 hover:underline cursor-pointer">
+          <button
+            className="ml-1 text-blue-600 hover:underline cursor-pointer"
+            onClick={() => navigate('/login')}
+          >
             Login
-          </span>
+          </button>
         </p>
       </div>
     </div>
