@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import authenticate from '../middlewares/authMiddleware.js';
+import { authenticate } from '../middlewares/authMiddleware.js';
 import { getMyApplications } from '../controllers/appliController.js';
 
 const router = Router();
 
-router.get('/', authenticate, getMyApplications);
+router.get('/', authenticate, requireRole('candidate'), getMyApplications);
 
 export default router;
