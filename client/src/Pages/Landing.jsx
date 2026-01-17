@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const Landing = () => {
   const { user } = useContext(AuthContext);
@@ -10,19 +11,7 @@ const Landing = () => {
   }, [user]);
   return (
     <div className="min-h-screen bg-zinc-100 flex flex-col">
-      <header className="border-b border-zinc-200 bg-white">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-zinc-900">Jobsy</h1>
-
-          <button
-            className="text-sm font-medium text-blue-600 hover:underline cursor-pointer"
-            onClick={() => navigate('/login')}
-          >
-            Login
-          </button>
-        </div>
-      </header>
-
+      <Navbar />
       <main className="flex-1 flex items-center">
         <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
           <div>

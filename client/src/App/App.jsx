@@ -20,13 +20,13 @@ function App() {
           <Routes>
             <Route element={<PublicLayout />}>
               <Route path="/" element={<Landing />} />
-              <Route path="/home" element={<Home />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/job/:id" element={<Job />} />
             </Route>
 
             <Route element={<PrivateLayout />}>
+              <Route path="/home" element={<Home />} />
               <Route path="/job/new" element={<CreateJob />} />
               <Route path="/job/:id/apply" element={<JobApply />} />
               <Route
