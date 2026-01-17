@@ -17,3 +17,7 @@ export const jobApply = (id, data) => {
   console.log(data);
   return API.post(`/jobs/${id}/apply`, data);
 };
+
+export const myJobs = () => {
+  return API.get('/jobs/me');
+};
