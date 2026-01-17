@@ -29,7 +29,14 @@ function App() {
             <Route element={<PrivateLayout />}>
               <Route path="/job/new" element={<CreateJob />} />
               <Route path="/job/:id/apply" element={<JobApply />} />
-              <Route path="/dashboard" element={<EmployerDashboard />} />
+              <Route
+                path="/dashboard/employer"
+                element={<EmployerDashboard />}
+              />
+              <Route
+                path="/dashboard/candidate"
+                element={<CandidateDashboard />}
+              />
             </Route>
           </Routes>
         </BrowserRouter>
