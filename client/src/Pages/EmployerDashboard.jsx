@@ -32,6 +32,8 @@ const EmployerDashboard = () => {
         </div>
       </header>
 
+      {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+
       <main className="max-w-6xl mx-auto px-6 py-10 space-y-8">
         {jobs.map((job) => (
           <div
@@ -45,8 +47,6 @@ const EmployerDashboard = () => {
             <p className="text-sm text-zinc-600 mb-6">
               {job.location} · {job.jobType} · {job.minExp}+ years
             </p>
-
-            {/* Applications */}
             <div className="space-y-4">
               {job.applications.map((application) => (
                 <div
@@ -74,8 +74,6 @@ const EmployerDashboard = () => {
                   </span>
                 </div>
               ))}
-
-              {/* More applications */}
             </div>
           </div>
         ))}

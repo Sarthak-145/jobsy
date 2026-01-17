@@ -33,6 +33,8 @@ export default function CandidateDashboard() {
         </div>
       </header>
 
+      {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+
       <main className="max-w-5xl mx-auto px-6 py-10">
         <div className="space-y-4">
           {applications.map((application) => (
